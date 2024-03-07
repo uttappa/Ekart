@@ -10,4 +10,4 @@ WORKDIR $APP_HOME
 
 ENTRYPOINT exec java -jar app.jar
 
-#ARG
+
