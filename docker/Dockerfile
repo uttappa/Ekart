@@ -14,10 +14,9 @@
 ARG alpine_image=alpine:latest
 FROM openjdk:8-jdk-alpine
 FROM ${alpine_image}
-ENV Home_dir=/home/alpine/ekart-app
-COPY target/shopping-cart-0.0.1-SNAPSHOT.jar ${Home_dir}/shopping-cart-0.0.1-SNAPSHOT.jar
-RUN adduser -D alpine  -h /home/alpine -s bin/bash 
-WORKDIR ${Home_dir}
+RUN mkdir -p /alpine/ekart-app && adduser -D alpine  -h /home/alpine -s bin/bash
+COPY target/shopping-cart-0.0.1-SNAPSHOT.jar  /alpine/ekart-app/shopping-cart-0.0.1-SNAPSHOT.jar
+WORKDIR /alpine/ekart-app
 RUN chown -R alpine:alpine shopping-cart-0.0.1-SNAPSHOT.jar
 USER alpine
 ENTRYPOINT [ "java","-jar","shopping-cart-0.0.1-SNAPSHOT.jar" ]
