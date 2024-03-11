@@ -21,7 +21,7 @@ RUN java -version
 RUN mkdir -p /alpine/ekart-app && adduser -D alpine  -h /home/alpine -s bin/bash
 COPY target/shopping-cart-0.0.1-SNAPSHOT.jar  /alpine/ekart-app/shopping-cart-0.0.1-SNAPSHOT.jar
 WORKDIR /alpine/ekart-app
-RUN chown -R alpine:alpine shopping-cart-0.0.1-SNAPSHOT.jar
+RUN chown -R alpine:alpine shopping-cart-0.0.1-SNAPSHOT.jar && ls -all
 USER alpine
 RUN hostname
 ENTRYPOINT [ "java","-jar","shopping-cart-0.0.1-SNAPSHOT.jar" ]
