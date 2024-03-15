@@ -2,7 +2,7 @@ ARG alpine_image=alpine:latest
 #FROM openjdk:8-jdk-alpine  <--- don't use this you might get java $PATH not found.
 FROM ${alpine_image}
 RUN  apk update &&  apk fetch openjdk8 && apk add openjdk8
-RUN apk update && apk search curl && apk add curl && curl –-version
+RUN apk update && apk search curl && apk add curl && curl --version
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
 ENV PATH=${JAVA_HOME}/bin:${PATH}
 RUN java -version 
