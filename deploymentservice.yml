@@ -23,7 +23,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
       - name: ekart-app
-        image: veda1998/ekart:latest    #$BuildNumber
+        image: veda1998/ekart:$BuildNumber    #$BuildNumber
         imagePullPolicy: Always
         ports:
           - containerPort: 8070
